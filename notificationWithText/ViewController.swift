@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let nc = NotificationCenter.default
         
+        nc.addObserver(self, selector: #selector(updateLabelContent), name: Notification.Name("textToview"), object: nil)
     }
+    
+    
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBAction func setButton(_ sender: Any) {
@@ -52,4 +56,13 @@ class ViewController: UIViewController {
     }
     
     
+    @objc func updateLabelContent() {
+        if UserDefaults.standard.value(forKey: "reply.action") != nil {
+            messageLabel.text = UserDefaults.standard.value(forKey: "reply.action") as? String ?? ""
+            UserDefaults.standard.removeObject(forKey: "reply.action")
+        }
+    }
+    
+    
 }
+

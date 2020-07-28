@@ -22,15 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if granted {
                 print("User Confirm")
             }else {
-                print("Error")
+                print("Error!")
                 
             }
+            
         }
         return true
     }
     
     
-    // MARK: UISceneSession Lifecycle
+    // MARK:- UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -52,14 +53,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler([.alert, .badge, .sound])
     }
     
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if  response.actionIdentifier  ==  "reply.action" {
-            if let textResponse =  response as? UNTextInputNotificationResponse {
-                let sendText =  textResponse.userText
-                print("Received text message: \(sendText)")
+        if response.actionIdentifier  == "reply.action" {
+            if let textResponse = response as? UNTextInputNotificationResponse {
+                let textToview = textResponse.userText
+                print("Received text message: \(textToview)")
                 
-                // (window?.rootViewController as? ViewController)?.messageLabel.text = sendText
+                
+                UserDefaults.standard.set(textToview, forKey: response.actionIdentifier)
+                let nc = NotificationCenter.default
+                nc.post(name: Notification.Name("textToview"), object: nil)
             }
         }
         completionHandler()
