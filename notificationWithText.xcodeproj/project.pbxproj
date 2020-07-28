@@ -15,6 +15,19 @@
 		A576056824CB07540035C779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A576056624CB07540035C779 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A576058624CF03EA0035C779 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A576055824CB074F0035C779 /* notificationWithText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notificationWithText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A576055B24CB074F0035C779 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +37,8 @@
 		A576056424CB07540035C779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A576056724CB07540035C779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A576056924CB07540035C779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A576057524CF03EA0035C779 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		A576057724CF03EA0035C779 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				A576055A24CB074F0035C779 /* notificationWithText */,
+				A576057424CF03EA0035C779 /* Frameworks */,
 				A576055924CB074F0035C779 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +83,15 @@
 			path = notificationWithText;
 			sourceTree = "<group>";
 		};
+		A576057424CF03EA0035C779 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A576057524CF03EA0035C779 /* UserNotifications.framework */,
+				A576057724CF03EA0035C779 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +102,7 @@
 				A576055424CB074F0035C779 /* Sources */,
 				A576055524CB074F0035C779 /* Frameworks */,
 				A576055624CB074F0035C779 /* Resources */,
+				A576058624CF03EA0035C779 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -287,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6W4MA25Y33;
 				INFOPLIST_FILE = notificationWithText/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6W4MA25Y33;
 				INFOPLIST_FILE = notificationWithText/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
